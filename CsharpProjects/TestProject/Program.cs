@@ -1,11 +1,22 @@
-﻿int[] numbers = {4,8,15,16,23,42};
-int total = 0;
-bool found = false;
+﻿Random random = new Random();
+int cAtk = random.Next(1,11);
+int hHealth = 10;
+int bHealth = 10;
+bool turn = true;
+do{
+    if(turn){
+        bHealth -= cAtk;
+        Console.WriteLine($"Monster was damaged and lost {cAtk} health and now has {bHealth} health.");
+        turn = false;
+    }
+    else{
+        hHealth -= cAtk;
+        Console.WriteLine($"Hero was damaged and lost {cAtk} health and now has {hHealth} health.");
+        turn = true;
+    }
+    cAtk = random.Next(1,11);
 
-foreach(int number in numbers){
-    total += number;
-    if(number == 42) found = true;
-}
 
-if(found) Console.WriteLine("Set Contains 42");
-Console.WriteLine($"Total: {total}");
+} while(hHealth > 0 && bHealth > 0);
+if(!turn) Console.WriteLine("Hero wins!");
+else Console.WriteLine("Monster wins!");
