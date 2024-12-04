@@ -1,6 +1,12 @@
-﻿Console.WriteLine("a" == "a");
-Console.WriteLine("a" == "A");
-Console.WriteLine(1 == 2);
+﻿string permission = "Manager";
+int level = 10;
+string output = "";
+if(permission.Contains("Admin")){
+    output = level > 55 ? "Welcome, Super Admin user." : "Welcome, Admin User";
+}
+else if (permission.Contains("Manager")){
+    output = level >= 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.";
+}
+else output = "You do not have sufficient priveleges.";
 
-string myValue = "a";
-Console.WriteLine(myValue == "a");
+Console.WriteLine(output);
