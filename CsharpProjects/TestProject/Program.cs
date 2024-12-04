@@ -1,12 +1,11 @@
-﻿string permission = "Manager";
-int level = 10;
-string output = "";
-if(permission.Contains("Admin")){
-    output = level > 55 ? "Welcome, Super Admin user." : "Welcome, Admin User";
-}
-else if (permission.Contains("Manager")){
-    output = level >= 20 ? "Contact an Admin for access." : "You do not have sufficient privileges.";
-}
-else output = "You do not have sufficient priveleges.";
+﻿int[] numbers = {4,8,15,16,23,42};
+int total = 0;
+bool found = false;
 
-Console.WriteLine(output);
+foreach(int number in numbers){
+    total += number;
+    if(number == 42) found = true;
+}
+
+if(found) Console.WriteLine("Set Contains 42");
+Console.WriteLine($"Total: {total}");
