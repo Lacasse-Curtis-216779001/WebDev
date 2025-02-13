@@ -1,4 +1,5 @@
-﻿// the ourAnimals array will store the following: 
+﻿/*
+// the ourAnimals array will store the following: 
 string animalSpecies = "";
 string animalID = "";
 string animalAge = "";
@@ -258,3 +259,67 @@ do
         default: break;
     }
 } while (menuSelection != "exit");
+
+
+string[] pallets = ["B14", "A11", "B12", "A13"];
+
+Console.WriteLine("Sorted...");
+Array.Sort(pallets);
+foreach(var pallet in pallets){
+    Console.WriteLine($"-- {pallet}");
+}
+
+Console.WriteLine("");
+Console.WriteLine("Reversed...");
+Array.Reverse(pallets);
+foreach(var pallet in pallets){
+    Console.WriteLine($"-- {pallet}");
+}
+Console.WriteLine("");
+
+Console.WriteLine($"Before: {pallets[0].ToLower()}");
+Array.Clear(pallets, 0, 2);
+if(pallets[0] != null)
+Console.WriteLine($"After: {pallets[0].ToLower()}");
+Console.WriteLine($"Clearing 2 ... count: {pallets.Length}");
+foreach (var pallet in pallets)
+{
+    Console.WriteLine($"-- {pallet}");
+}
+
+
+string first = "Hello";
+string second = "World";
+Console.WriteLine($"{first} {second}!");
+Console.WriteLine($"{second} {first}!");
+Console.WriteLine($"{first} {first} {first}!");
+decimal price = 123.45m;
+int discount = 50;
+Console.WriteLine($"Price: {price:C} (Save {discount:C})");
+decimal measurement = 123456.78912m;
+Console.WriteLine($"Measurement: {measurement:N} units");
+decimal tax = .36785m;
+Console.WriteLine($"Tax rate: {tax:P2}");
+decimal price2 = 67.55m;
+decimal salePrice = 59.99m;
+
+string yourDiscount = String.Format("You saved {0:C2} off the regular {1:C2} price. ", (price2 - salePrice), price2);
+
+yourDiscount += $"A discount of {((price2 - salePrice)/price2):P2}!"; //inserted
+Console.WriteLine(yourDiscount);
+
+
+int invoiceNumber = 1201;
+decimal productShares = 25.4568m;
+decimal subtotal = 2750.00m;
+decimal taxPercentage = .15825m;
+decimal total = 3185.19m;
+
+Console.WriteLine($"Invoice Number: {invoiceNumber}");
+Console.WriteLine($"    Shares: {productShares:N3} Product");
+Console.WriteLine($"     Sub Total: {subtotal:C}");
+Console.WriteLine($"           Tax: {taxPercentage:P2}");
+Console.WriteLine($"     Total Billed: {total:C}");
+
+*/
+
