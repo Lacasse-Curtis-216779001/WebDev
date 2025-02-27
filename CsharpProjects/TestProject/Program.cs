@@ -383,7 +383,7 @@ for(int i = 0; i < 5; i++){
 Console.WriteLine();
 }
 
-*/
+
 
 using System;
 
@@ -395,7 +395,7 @@ int currentGMT = Convert.ToInt32(Console.ReadLine());
 
 Console.WriteLine("Current Medicine Schedule:");
 
-/* Format and display medicine times */
+/* Format and display medicine times 
 displayTimes();
 
 Console.WriteLine();
@@ -417,7 +417,7 @@ else
 {
     diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
 
-    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    /* Adjust the times by adding the difference, keeping the value within 24 hours 
     adjustTimes();
 }
 
@@ -428,7 +428,7 @@ displayTimes();
 Console.WriteLine();
 
 void displayTimes(){
-/* Format and display medicine times */
+/* Format and display medicine times 
 foreach (int val in times)
 {
     string time = val.ToString();
@@ -452,9 +452,124 @@ foreach (int val in times)
 }
 
 void adjustTimes(){
-    /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    /* Adjust the times by adding the difference, keeping the value within 24 hours 
     for (int i = 0; i < times.Length; i++) 
     {
         times[i] = ((times[i] + diff)) % 2400;
+    }
+}
+
+
+
+int[] schedule = {800, 1200, 1600, 2000};
+DisplayAdjustedTimes(schedule, 6, -6);
+
+void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
+{
+int diff = 0;
+if(Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12){
+    Console.WriteLine("Invalid GMT");
+}
+else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
+{
+    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
+} 
+else 
+{
+    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
+}
+for (int i = 0; i < times.Length; i++) 
+{
+    int newTime = ((times[i] + diff)) % 2400;
+    Console.WriteLine($"{times[i]} -> {newTime}");
+}
+}
+
+
+string[] students = {"Jenna", "Ayesha", "Carlos", "Viktor"};
+
+DisplayStudents(students);
+DisplayStudents(new string[] {"Robert","Vanya"});
+
+void DisplayStudents(string[] students) 
+{
+    foreach (string student in students) 
+    {
+        Console.Write($"{student}, ");
+    }
+    Console.WriteLine();
+}
+
+
+int a = 3;
+int b = 4;
+int c = 0;
+
+Multiply(a, b, c);
+Console.WriteLine($"global statement: {a} x {b} = {c}");
+
+void Multiply(int a, int b, int c) 
+{
+    c = a * b;
+    Console.WriteLine($"inside Multiply method: {a} x {b} = {c}");
+}
+
+int[] array = {1, 2, 3, 4, 5};
+
+PrintArray(array);
+Clear(array);
+PrintArray(array);
+
+void PrintArray(int[] array) 
+{
+    foreach (int a in array) 
+    {
+        Console.Write($"{a} ");
+    }
+    Console.WriteLine();
+}
+
+void Clear(int[] array) 
+{
+    for (int i = 0; i < array.Length; i++) 
+    {
+        array[i] = 0;
+    }
+}
+
+
+string status = "Healthy";
+
+Console.WriteLine($"Start: {status}");
+SetHealth(false);
+Console.WriteLine($"End: {status}");
+
+void SetHealth(bool isHealthy) 
+{
+    status = (isHealthy ? "Healthy" : "Unhealthy");
+    Console.WriteLine($"Middle: {status}");
+}
+*/
+string[] guestList = {"Rebecca", "Nadia", "Noor", "Jonte"};
+string[] rsvps = new string[10];
+int count = 0;
+
+void RSVP(string name, int partySize, string allergies, bool inviteOnly) 
+{
+    if (inviteOnly)
+    {
+        // search guestList before adding rsvp
+    }
+
+    rsvps[count] = $"Name: {name}, \tParty Size: {partySize}, \tAllergies: {allergies}";
+    count++;
+}
+
+void ShowRSVPs()
+{
+    Console.WriteLine("\nTotal RSVPs:");
+    for (int i = 0; i < count; i++)
+    {
+        Console.WriteLine(rsvps[i]);
     }
 }
